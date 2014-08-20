@@ -11,6 +11,7 @@ body
 {
 	width: 500px;
 	margin: auto;
+   background-image: url(image-path('halftone.png'))
 }
 
 .datagrid table { border-collapse: collapse; text-align: center;  } 
