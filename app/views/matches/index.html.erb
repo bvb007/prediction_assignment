@@ -1,0 +1,24 @@
+<% @league = League.find(params[:league_id])%>
+<h1> <%= @league.name %> </h1>
+<%= link_to 'Back To Leagues', leagues_path %>
+<h2> Matches </h2>
+<i> <div class='message'> <%= notice %> </div> </i> <br />
+<%= link_to 'Create New Match', new_league_match_path %> <br /> <br />
+
+<div class='datagrid'>
+	<table>
+		<tbody>
+			<% @matches.each do |match| %>
+			<tr>
+				<td>
+				 	<b> <%= match.club1_id %> vs. <%= match.club2_id %> </b> <br /><br />
+				 	<b> Location: </b> <%= match.location %> <br />
+				 	<b> Date: </b> <%= match.sdate %> 
+				</td>
+				<td> <%= link_to 'Edit', edit_league_match_path(@league,match) %> </td>
+				<td> <%= link_to 'Delete', league_match_path(@league,match), method: :delete %> </td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

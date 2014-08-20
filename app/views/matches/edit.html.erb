@@ -1,0 +1,26 @@
+<h1> Edit Match </h1>
+
+<%= form_for @match, url: league_match_path(@league, @match) do |f| %>
+<table>
+  <tr>
+    <td> Location </td>
+    <td> <%= f.text_field :location %> </td> 
+  </tr>
+  <tr>
+    <td> Start Date </td>
+    <td> <%= f.date_field :sdate %> </td> 
+  </tr>
+  <tr>
+    <td> Team 1 </td>
+    <td> <%= f.text_field  :club1_id %> </td> 
+  </tr>
+  <tr>
+    <td> Team 2 </td>
+    <td> <%= f.text_field :club2_id %> </td> 
+  </tr>
+  <tr>
+    <td>  </td>
+    <td> <%= f.submit %>  </td> 
+  </tr>  
+</table>
+<% end %>

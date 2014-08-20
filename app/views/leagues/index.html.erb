@@ -1,0 +1,22 @@
+<h1> Leagues </h1>
+ <% message = params[:message] %> 
+<i> <div class='message'> <%= notice %> </div> </i> <br />
+<%= link_to 'Create a New League', new_league_path %> <br /> <br />
+<div class='datagrid'>
+	<table class='customTable'>
+		<tbody>
+			<% @leagues.each do |league| %>
+				<tr class='alt'>
+					<td> 
+						<h3> <%= league.name %> </h3> 
+						<b> Location: </b> <i> <%= league.location %> </i> <br />
+						<b> Date: </b> <i> <%= league.sdate %> to <%= league.sdate %> </i>
+					</td>
+					<td> <%= link_to 'Matches', league_matches_path(league) %> </td>
+					<td> <%= link_to 'Edit', edit_league_path(league) %> </td>
+					<td> <%= link_to 'Delete', league_path(league), method: :delete %> </td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div> 

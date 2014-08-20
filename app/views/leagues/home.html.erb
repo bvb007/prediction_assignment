@@ -1,0 +1,23 @@
+<h1> Leagues </h1>
+<% message = params[:message] %>
+<div class='message'> <%= p message if !message.nil? %> </div>
+<%= link_to 'Create a New League', new_league_path %>
+
+<table>
+	<tr>
+		<th> Leagues </th>
+		<th> </th>
+		<th> </th>
+		<th> </th>
+		<th> </th>
+	</tr>
+	<% @leagues.each do |league| %>
+	<tr>
+		<td> <%= league.name %> </td>
+		<td> <%= link_to 'Add Clubs' %> </td>
+		<td> <%= link_to 'Add Matches' %> </td>
+		<td> <%= link_to 'Edit', edit_league_path(league) %> </td>
+		<td> <%= link_to 'Delete', league_path(league), method: :delete %> </td>
+	</tr>
+	<% end %>
+</table>
